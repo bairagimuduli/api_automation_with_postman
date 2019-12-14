@@ -1,7 +1,7 @@
 {
 	"id": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
 	"name": "RocketChat",
-	"description": "this is to test the api using automation",
+	"description": null,
 	"auth": null,
 	"events": null,
 	"variables": [],
@@ -9,7 +9,9 @@
 	  "bcf5b75f-fd6e-408f-8d53-6ddb152ccb18",
 	  "a275ffcb-250f-4ee9-b375-50064ea627c2",
 	  "71147f92-7398-4116-ba4a-fcc971caa5e4",
-	  "26685f42-ec41-4f14-93d3-7e5e585c0e23"
+	  "75048b6d-d350-4f5b-9e0c-4373c511bd87",
+	  "26685f42-ec41-4f14-93d3-7e5e585c0e23",
+	  "bee3c9a2-3ea5-421a-a623-77a954f79ff2"
 	],
 	"folders_order": [],
 	"protocolProfileBehavior": [],
@@ -124,7 +126,68 @@
 		"currentHelper": null,
 		"helperAttributes": null,
 		"collectionId": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
-		"rawModeData": "{ \"channel\": \"#atabengaluru23meetup\", \"text\": \"This is test message number 3\" }",
+		"rawModeData": "{ \"channel\": \"#qapios\", \"text\": \"hey there i m cool\" }",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\nContent-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "75048b6d-d350-4f5b-9e0c-4373c511bd87",
+		"name": "get Message new",
+		"url": "http://{{url}}/api/v1/chat.getMessage?msgId={{messageid}}",
+		"description": null,
+		"data": null,
+		"dataOptions": null,
+		"dataMode": null,
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"type": "text",
+			"value": "{{token}}"
+		  },
+		  {
+			"key": "X-User-Id",
+			"type": "text",
+			"value": "{{id}}"
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"type": "text",
+			"value": "application/json"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [
+		  {
+			"key": "msgId",
+			"value": "{{messageid}}",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		  }
+		],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "883dca9c-b70e-4251-808a-1e741b4eb561",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
 		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\nContent-Type: application/json\n",
 		"pathVariables": []
 	  },
@@ -161,6 +224,15 @@
 				"pm.test(\"Status code is 200\", function () {",
 				"    pm.response.to.have.status(200);",
 				"});",
+				"",
+				"//validate for channel is there or not",
+				"pm.test(\"qapios\", function () {",
+				"    pm.expect(pm.response.text()).to.include(\"qapios\");",
+				"});",
+				"",
+				"//printing the value",
+				"",
+				"console.log(\"get the variable\")",
 				""
 			  ],
 			  "type": "text/javascript"
@@ -169,7 +241,7 @@
 		],
 		"folder": null,
 		"preRequestScript": null,
-		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n",
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\n//validate for channel is there or not\npm.test(\"qapios\", function () {\n    pm.expect(pm.response.text()).to.include(\"qapios\");\n});\n\n//printing the value\n\nconsole.log(\"get the variable\")\n",
 		"currentHelper": null,
 		"helperAttributes": null,
 		"collectionId": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
@@ -223,6 +295,67 @@
 		"collectionId": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
 		"rawModeData": "{\n\t\"user\":\"{{username}}\",\n\t\"password\":\"{{password}}\"\n}",
 		"headers": "Content-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "bee3c9a2-3ea5-421a-a623-77a954f79ff2",
+		"name": "get Message",
+		"url": "http://{{url}}/api/v1/chat.getMessage?msgId={{messageid}}",
+		"description": null,
+		"data": null,
+		"dataOptions": null,
+		"dataMode": null,
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"type": "text",
+			"value": "{{token}}"
+		  },
+		  {
+			"key": "X-User-Id",
+			"type": "text",
+			"value": "{{id}}"
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"type": "text",
+			"value": "application/json"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [
+		  {
+			"key": "msgId",
+			"value": "{{messageid}}",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		  }
+		],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "883dca9c-b70e-4251-808a-1e741b4eb561",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(400);",
+				"});"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(400);\n});",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\nContent-Type: application/json\n",
 		"pathVariables": []
 	  }
 	]
