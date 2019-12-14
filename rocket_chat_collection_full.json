@@ -1,0 +1,903 @@
+{
+	"id": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+	"name": "RocketChatFUll",
+	"description": null,
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+	  "f039bbeb-1166-4132-a863-90ea31a27cb1",
+	  "69c305ef-4b0c-4180-9f33-c579c043a8af",
+	  "872d8815-d48a-49c3-b439-0f3c0bdb59d5",
+	  "6f4382f4-c01d-4485-af39-32336208e42d",
+	  "abae025b-bb6e-439c-92f3-181969d4c061",
+	  "fa522898-9b3c-4dbb-b8ea-14f742285b0a",
+	  "a8868f03-db61-4ad8-b5c2-1223abdc6f69",
+	  "938ec147-ae2c-4f94-b242-cb8787171a55",
+	  "f330c73c-c3da-42c6-9fea-2caf92ee7e27",
+	  "b6da76c3-ce97-412d-866c-a210d40692ef",
+	  "a86c8fdf-3151-457c-85b0-e7949b706eb7",
+	  "dbf061af-ef47-45ea-9890-01e28fc919dc",
+	  "8f65a856-9b09-4523-8b3c-13b41cc62f78",
+	  "05460637-54c0-4d9b-9c2b-7d3fbea678db"
+	],
+	"folders_order": [],
+	"protocolProfileBehavior": [],
+	"folders": [],
+	"requests": [
+	  {
+		"id": "05460637-54c0-4d9b-9c2b-7d3fbea678db",
+		"name": "rooms.get",
+		"url": "http://{{url}}/api/v1/rooms.get",
+		"description": "",
+		"data": null,
+		"dataOptions": null,
+		"dataMode": null,
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"value": "t82TCkCLVHn46vCxzcYggvgGA_TFtTwHrdYXFLKvw0s",
+			"type": "text",
+			"enabled": true,
+			"description": ""
+		  },
+		  {
+			"key": "X-User-Id",
+			"value": "DZrpycKxidxuhtPdz",
+			"type": "text",
+			"enabled": true,
+			"description": ""
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": null,
+		"folder": null,
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"headers": "X-Auth-Token: t82TCkCLVHn46vCxzcYggvgGA_TFtTwHrdYXFLKvw0s\nX-User-Id: DZrpycKxidxuhtPdz\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "69c305ef-4b0c-4180-9f33-c579c043a8af",
+		"name": "ChannelsList",
+		"url": "http://{{url}}/api/v1/channels.list",
+		"description": null,
+		"data": null,
+		"dataOptions": null,
+		"dataMode": null,
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"value": "{{token}}",
+			"type": "text"
+		  },
+		  {
+			"key": "X-User-Id",
+			"value": "{{id}}",
+			"type": "text"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "4af9f533-cebb-47cc-b94e-1c8d6dcb4289",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				""
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "6f4382f4-c01d-4485-af39-32336208e42d",
+		"name": "getThreadMessages",
+		"url": "http://{{url}}/api/v1/chat.getPinnedMessages?roomId=wwu42NaP4MBmJyxgz&count=2&offset=0",
+		"description": null,
+		"data": null,
+		"dataOptions": null,
+		"dataMode": null,
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"type": "text",
+			"value": "{{token}}"
+		  },
+		  {
+			"key": "X-User-Id",
+			"type": "text",
+			"value": "{{id}}"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [
+		  {
+			"key": "roomId",
+			"value": "wwu42NaP4MBmJyxgz",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		  },
+		  {
+			"key": "count",
+			"value": "2",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		  },
+		  {
+			"key": "offset",
+			"value": "0",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		  }
+		],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "4af9f533-cebb-47cc-b94e-1c8d6dcb4289",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				""
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "872d8815-d48a-49c3-b439-0f3c0bdb59d5",
+		"name": "getPinnedMessages",
+		"url": "http://{{url}}/api/v1/chat.getPinnedMessages?roomId=wwu42NaP4MBmJyxgz&count=2&offset=0",
+		"description": null,
+		"data": null,
+		"dataOptions": null,
+		"dataMode": null,
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"type": "text",
+			"value": "{{token}}"
+		  },
+		  {
+			"key": "X-User-Id",
+			"type": "text",
+			"value": "{{id}}"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [
+		  {
+			"key": "roomId",
+			"value": "wwu42NaP4MBmJyxgz",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		  },
+		  {
+			"key": "count",
+			"value": "2",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		  },
+		  {
+			"key": "offset",
+			"value": "0",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		  }
+		],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "4af9f533-cebb-47cc-b94e-1c8d6dcb4289",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				""
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "8f65a856-9b09-4523-8b3c-13b41cc62f78",
+		"name": "channels.create",
+		"url": "http://{{url}}/api/v1/channels.create",
+		"description": "",
+		"data": [],
+		"dataOptions": {
+		  "raw": {
+			"language": "json"
+		  }
+		},
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "Accept",
+			"value": "*/*",
+			"enabled": true
+		  },
+		  {
+			"key": "Accept-Encoding",
+			"value": "gzip, deflate",
+			"enabled": true
+		  },
+		  {
+			"key": "Cache-Control",
+			"value": "no-cache",
+			"enabled": true
+		  },
+		  {
+			"key": "Connection",
+			"value": "keep-alive",
+			"enabled": true
+		  },
+		  {
+			"key": "Content-Length",
+			"value": "54",
+			"enabled": true
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"value": "application/json",
+			"description": "",
+			"type": "text"
+		  },
+		  {
+			"key": "Host",
+			"value": "101.53.157.237:3000",
+			"enabled": true
+		  },
+		  {
+			"key": "Postman-Token",
+			"value": "5efe1d3a-0113-4afb-bf6b-5fc9c364698c,5b7366ff-eece-4639-a9ee-92e7c49361b4,d3cbaa8e-2e13-49d4-a3e5-674839afe9a6",
+			"enabled": true
+		  },
+		  {
+			"key": "User-Agent",
+			"value": "PostmanRuntime/7.19.0",
+			"enabled": true
+		  },
+		  {
+			"key": "X-Auth-Token",
+			"value": "t82TCkCLVHn46vCxzcYggvgGA_TFtTwHrdYXFLKvw0s",
+			"enabled": true
+		  },
+		  {
+			"key": "X-User-Id",
+			"value": "DZrpycKxidxuhtPdz",
+			"enabled": true
+		  },
+		  {
+			"key": "cache-control",
+			"value": "no-cache,no-cache",
+			"enabled": true
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": null,
+		"folder": null,
+		"protocolProfileBehavior": {
+		  "disableBodyPruning": true
+		},
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"rawModeData": "{ \"name\": \"bantu\" }",
+		"headers": "Accept: */*\nAccept-Encoding: gzip, deflate\nCache-Control: no-cache\nConnection: keep-alive\nContent-Length: 54\nContent-Type: application/json\nHost: 101.53.157.237:3000\nPostman-Token: 5efe1d3a-0113-4afb-bf6b-5fc9c364698c,5b7366ff-eece-4639-a9ee-92e7c49361b4,d3cbaa8e-2e13-49d4-a3e5-674839afe9a6\nUser-Agent: PostmanRuntime/7.19.0\nX-Auth-Token: t82TCkCLVHn46vCxzcYggvgGA_TFtTwHrdYXFLKvw0s\nX-User-Id: DZrpycKxidxuhtPdz\ncache-control: no-cache,no-cache\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "938ec147-ae2c-4f94-b242-cb8787171a55",
+		"name": "pin message",
+		"url": "http://{{url}}/api/v1/chat.pinMessage",
+		"description": null,
+		"data": [],
+		"dataOptions": null,
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"type": "text",
+			"value": "{{token}}"
+		  },
+		  {
+			"key": "X-User-Id",
+			"type": "text",
+			"value": "{{id}}"
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"type": "text",
+			"value": "application/json"
+		  }
+		],
+		"method": "POST",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "617dce9b-45b3-4480-8bad-e008be3bf4e3",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				"let jsonData = pm.response.json();",
+				"console.log(jsonData.message.rid);",
+				"console.log(jsonData.message._id);",
+				"pm.environment.set(\"roomid\", jsonData.message.rid);",
+				"pm.environment.set(\"messageid\", jsonData.message._id);"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\nlet jsonData = pm.response.json();\nconsole.log(jsonData.message.rid);\nconsole.log(jsonData.message._id);\npm.environment.set(\"roomid\", jsonData.message.rid);\npm.environment.set(\"messageid\", jsonData.message._id);",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"rawModeData": "{\n    \"messageId\": \"YmE8Kfrx8sF2ZapJ8\"\n}",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\nContent-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "a86c8fdf-3151-457c-85b0-e7949b706eb7",
+		"name": "channels.open",
+		"url": "http://{{url}}/api/v1/channels.open",
+		"description": "",
+		"data": [],
+		"dataOptions": {
+		  "raw": {
+			"language": "json"
+		  }
+		},
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "Accept",
+			"value": "*/*",
+			"enabled": true
+		  },
+		  {
+			"key": "Accept-Encoding",
+			"value": "gzip, deflate",
+			"enabled": true
+		  },
+		  {
+			"key": "Cache-Control",
+			"value": "no-cache",
+			"enabled": true
+		  },
+		  {
+			"key": "Connection",
+			"value": "keep-alive",
+			"enabled": true
+		  },
+		  {
+			"key": "Host",
+			"value": "101.53.157.237:3000",
+			"enabled": true
+		  },
+		  {
+			"key": "Postman-Token",
+			"value": "5efe1d3a-0113-4afb-bf6b-5fc9c364698c,5b7366ff-eece-4639-a9ee-92e7c49361b4",
+			"enabled": true
+		  },
+		  {
+			"key": "User-Agent",
+			"value": "PostmanRuntime/7.19.0",
+			"enabled": true
+		  },
+		  {
+			"key": "X-Auth-Token",
+			"value": "t82TCkCLVHn46vCxzcYggvgGA_TFtTwHrdYXFLKvw0s",
+			"enabled": true
+		  },
+		  {
+			"key": "X-User-Id",
+			"value": "DZrpycKxidxuhtPdz",
+			"enabled": true
+		  },
+		  {
+			"key": "cache-control",
+			"value": "no-cache",
+			"enabled": true
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"value": "application/json",
+			"description": "",
+			"type": "text"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": null,
+		"folder": null,
+		"protocolProfileBehavior": {
+		  "disableBodyPruning": true
+		},
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"rawModeData": "{ \"roomId\": \"wwu42NaP4MBmJyxgz\" }",
+		"headers": "Accept: */*\nAccept-Encoding: gzip, deflate\nCache-Control: no-cache\nConnection: keep-alive\nHost: 101.53.157.237:3000\nPostman-Token: 5efe1d3a-0113-4afb-bf6b-5fc9c364698c,5b7366ff-eece-4639-a9ee-92e7c49361b4\nUser-Agent: PostmanRuntime/7.19.0\nX-Auth-Token: t82TCkCLVHn46vCxzcYggvgGA_TFtTwHrdYXFLKvw0s\nX-User-Id: DZrpycKxidxuhtPdz\ncache-control: no-cache\nContent-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "a8868f03-db61-4ad8-b5c2-1223abdc6f69",
+		"name": "post message",
+		"url": "http://{{url}}/api/v1/chat.postMessage",
+		"description": null,
+		"data": [],
+		"dataOptions": null,
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"value": "{{token}}",
+			"type": "text"
+		  },
+		  {
+			"key": "X-User-Id",
+			"value": "{{id}}",
+			"type": "text"
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"value": "application/json",
+			"type": "text"
+		  }
+		],
+		"method": "POST",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "617dce9b-45b3-4480-8bad-e008be3bf4e3",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				"let jsonData = pm.response.json();",
+				"console.log(jsonData.message.rid);",
+				"console.log(jsonData.message._id);",
+				"pm.environment.set(\"roomid\", jsonData.message.rid);",
+				"pm.environment.set(\"messageid\", jsonData.message._id);"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\nlet jsonData = pm.response.json();\nconsole.log(jsonData.message.rid);\nconsole.log(jsonData.message._id);\npm.environment.set(\"roomid\", jsonData.message.rid);\npm.environment.set(\"messageid\", jsonData.message._id);",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"rawModeData": "{ \"channel\": \"qapios\", \"text\": \"This is test message number 3\" }",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\nContent-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "abae025b-bb6e-439c-92f3-181969d4c061",
+		"name": "getStarredMessages",
+		"url": "http://{{url}}/api/v1/chat.getStarredMessages?roomId=wwu42NaP4MBmJyxgz",
+		"description": null,
+		"data": null,
+		"dataOptions": null,
+		"dataMode": null,
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"type": "text",
+			"value": "{{token}}"
+		  },
+		  {
+			"key": "X-User-Id",
+			"type": "text",
+			"value": "{{id}}"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [
+		  {
+			"key": "roomId",
+			"value": "wwu42NaP4MBmJyxgz",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		  }
+		],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "4af9f533-cebb-47cc-b94e-1c8d6dcb4289",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				""
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "b6da76c3-ce97-412d-866c-a210d40692ef",
+		"name": "Delete Message",
+		"url": "http://{{url}}/api/v1/chat.delete",
+		"description": null,
+		"data": [],
+		"dataOptions": null,
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"type": "text",
+			"value": "{{token}}"
+		  },
+		  {
+			"key": "X-User-Id",
+			"type": "text",
+			"value": "{{id}}"
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"type": "text",
+			"value": "application/json"
+		  }
+		],
+		"method": "POST",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "883dca9c-b70e-4251-808a-1e741b4eb561",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"rawModeData": "{ \"roomId\": \"{{roomid}}\", \"msgId\": \"{{messageid}}\", \"asUser\": true }",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\nContent-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "dbf061af-ef47-45ea-9890-01e28fc919dc",
+		"name": "group.open",
+		"url": "http://101.53.157.237:3000/api/v1/groups.open",
+		"description": "",
+		"data": [],
+		"dataOptions": {
+		  "raw": {
+			"language": "json"
+		  }
+		},
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "Accept",
+			"value": "*/*",
+			"enabled": true
+		  },
+		  {
+			"key": "Accept-Encoding",
+			"value": "gzip, deflate",
+			"enabled": true
+		  },
+		  {
+			"key": "Cache-Control",
+			"value": "no-cache",
+			"enabled": true
+		  },
+		  {
+			"key": "Connection",
+			"value": "keep-alive",
+			"enabled": true
+		  },
+		  {
+			"key": "Host",
+			"value": "101.53.157.237:3000",
+			"enabled": true
+		  },
+		  {
+			"key": "Postman-Token",
+			"value": "5efe1d3a-0113-4afb-bf6b-5fc9c364698c,5b7366ff-eece-4639-a9ee-92e7c49361b4",
+			"enabled": true
+		  },
+		  {
+			"key": "User-Agent",
+			"value": "PostmanRuntime/7.19.0",
+			"enabled": true
+		  },
+		  {
+			"key": "X-Auth-Token",
+			"value": "t82TCkCLVHn46vCxzcYggvgGA_TFtTwHrdYXFLKvw0s",
+			"enabled": true
+		  },
+		  {
+			"key": "X-User-Id",
+			"value": "DZrpycKxidxuhtPdz",
+			"enabled": true
+		  },
+		  {
+			"key": "cache-control",
+			"value": "no-cache",
+			"enabled": true
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"value": "application/json",
+			"description": "",
+			"type": "text"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": null,
+		"folder": null,
+		"protocolProfileBehavior": {
+		  "disableBodyPruning": true
+		},
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"rawModeData": "{\n    \"roomId\": \"wwu42NaP4MBmJyxgz\"\n}",
+		"headers": "Accept: */*\nAccept-Encoding: gzip, deflate\nCache-Control: no-cache\nConnection: keep-alive\nHost: 101.53.157.237:3000\nPostman-Token: 5efe1d3a-0113-4afb-bf6b-5fc9c364698c,5b7366ff-eece-4639-a9ee-92e7c49361b4\nUser-Agent: PostmanRuntime/7.19.0\nX-Auth-Token: t82TCkCLVHn46vCxzcYggvgGA_TFtTwHrdYXFLKvw0s\nX-User-Id: DZrpycKxidxuhtPdz\ncache-control: no-cache\nContent-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "f039bbeb-1166-4132-a863-90ea31a27cb1",
+		"name": "Login",
+		"url": "http://{{url}}/api/v1/login",
+		"description": null,
+		"data": [],
+		"dataOptions": null,
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "Content-Type",
+			"value": "application/json",
+			"type": "text"
+		  }
+		],
+		"method": "POST",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "901e19f2-cc4a-4811-b8b9-1e4191bc7923",
+			  "exec": [
+				"",
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				"let jsonData = pm.response.json();",
+				"console.log(jsonData.data.authToken);",
+				"console.log(jsonData.data.userId);",
+				"pm.environment.set(\"token\", jsonData.data.authToken);",
+				"pm.environment.set(\"id\", jsonData.data.userId);"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "\npm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\nlet jsonData = pm.response.json();\nconsole.log(jsonData.data.authToken);\nconsole.log(jsonData.data.userId);\npm.environment.set(\"token\", jsonData.data.authToken);\npm.environment.set(\"id\", jsonData.data.userId);",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"rawModeData": "{\n\t\"user\":\"{{username}}\",\n\t\"password\":\"{{password}}\"\n}",
+		"headers": "Content-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "f330c73c-c3da-42c6-9fea-2caf92ee7e27",
+		"name": "unpin messag",
+		"url": "http://{{url}}/api/v1/chat.unPinMessage",
+		"description": null,
+		"data": [],
+		"dataOptions": null,
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"type": "text",
+			"value": "{{token}}"
+		  },
+		  {
+			"key": "X-User-Id",
+			"type": "text",
+			"value": "{{id}}"
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"type": "text",
+			"value": "application/json"
+		  }
+		],
+		"method": "POST",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "617dce9b-45b3-4480-8bad-e008be3bf4e3",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				"let jsonData = pm.response.json();",
+				"console.log(jsonData.message.rid);",
+				"console.log(jsonData.message._id);",
+				"pm.environment.set(\"roomid\", jsonData.message.rid);",
+				"pm.environment.set(\"messageid\", jsonData.message._id);"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\nlet jsonData = pm.response.json();\nconsole.log(jsonData.message.rid);\nconsole.log(jsonData.message._id);\npm.environment.set(\"roomid\", jsonData.message.rid);\npm.environment.set(\"messageid\", jsonData.message._id);",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"rawModeData": "{\n    \"messageId\": \"YmE8Kfrx8sF2ZapJ8\"\n}",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\nContent-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "fa522898-9b3c-4dbb-b8ea-14f742285b0a",
+		"name": "group list",
+		"url": "http://{{url}}/api/v1/groups.list",
+		"description": null,
+		"data": null,
+		"dataOptions": null,
+		"dataMode": null,
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"value": "{{token}}",
+			"type": "text"
+		  },
+		  {
+			"key": "X-User-Id",
+			"value": "{{id}}",
+			"type": "text"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "4af9f533-cebb-47cc-b94e-1c8d6dcb4289",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				""
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "ae18c205-e528-4f7e-b769-a2582d5ed006",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\n",
+		"pathVariables": []
+	  }
+	]
+  }
