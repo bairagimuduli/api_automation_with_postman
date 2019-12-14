@@ -1,0 +1,3 @@
+Jenkins windows batch script to run :
+
+newman run C:\Users\Qaagility\Desktop\RocketChat\AdiRocketChat.postman_collection.json -e C:\Users\Qaagility\Desktop\RocketChat\AdiTestingEnv.postman_environment.json --disable-unicode

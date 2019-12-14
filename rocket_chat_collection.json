@@ -1,0 +1,229 @@
+{
+	"id": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
+	"name": "RocketChat",
+	"description": "this is to test the api using automation",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+	  "bcf5b75f-fd6e-408f-8d53-6ddb152ccb18",
+	  "a275ffcb-250f-4ee9-b375-50064ea627c2",
+	  "71147f92-7398-4116-ba4a-fcc971caa5e4",
+	  "26685f42-ec41-4f14-93d3-7e5e585c0e23"
+	],
+	"folders_order": [],
+	"protocolProfileBehavior": [],
+	"folders": [],
+	"requests": [
+	  {
+		"id": "26685f42-ec41-4f14-93d3-7e5e585c0e23",
+		"name": "Delete Message",
+		"url": "http://{{url}}/api/v1/chat.delete",
+		"description": null,
+		"data": [],
+		"dataOptions": null,
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"type": "text",
+			"value": "{{token}}"
+		  },
+		  {
+			"key": "X-User-Id",
+			"type": "text",
+			"value": "{{id}}"
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"type": "text",
+			"value": "application/json"
+		  }
+		],
+		"method": "POST",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "883dca9c-b70e-4251-808a-1e741b4eb561",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
+		"rawModeData": "{ \"roomId\": \"{{roomid}}\", \"msgId\": \"{{messageid}}\", \"asUser\": true }",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\nContent-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "71147f92-7398-4116-ba4a-fcc971caa5e4",
+		"name": "post message",
+		"url": "http://{{url}}/api/v1/chat.postMessage",
+		"description": null,
+		"data": [],
+		"dataOptions": null,
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"value": "{{token}}",
+			"type": "text"
+		  },
+		  {
+			"key": "X-User-Id",
+			"value": "{{id}}",
+			"type": "text"
+		  },
+		  {
+			"key": "Content-Type",
+			"name": "Content-Type",
+			"value": "application/json",
+			"type": "text"
+		  }
+		],
+		"method": "POST",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "617dce9b-45b3-4480-8bad-e008be3bf4e3",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				"let jsonData = pm.response.json();",
+				"console.log(jsonData.message.rid);",
+				"console.log(jsonData.message._id);",
+				"pm.environment.set(\"roomid\", jsonData.message.rid);",
+				"pm.environment.set(\"messageid\", jsonData.message._id);"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\nlet jsonData = pm.response.json();\nconsole.log(jsonData.message.rid);\nconsole.log(jsonData.message._id);\npm.environment.set(\"roomid\", jsonData.message.rid);\npm.environment.set(\"messageid\", jsonData.message._id);",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
+		"rawModeData": "{ \"channel\": \"#atabengaluru23meetup\", \"text\": \"This is test message number 3\" }",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\nContent-Type: application/json\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "a275ffcb-250f-4ee9-b375-50064ea627c2",
+		"name": "ChannelsList",
+		"url": "http://{{url}}/api/v1/channels.list",
+		"description": null,
+		"data": null,
+		"dataOptions": null,
+		"dataMode": null,
+		"headerData": [
+		  {
+			"key": "X-Auth-Token",
+			"value": "{{token}}",
+			"type": "text"
+		  },
+		  {
+			"key": "X-User-Id",
+			"value": "{{id}}",
+			"type": "text"
+		  }
+		],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "4af9f533-cebb-47cc-b94e-1c8d6dcb4289",
+			  "exec": [
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				""
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
+		"headers": "X-Auth-Token: {{token}}\nX-User-Id: {{id}}\n",
+		"pathVariables": []
+	  },
+	  {
+		"id": "bcf5b75f-fd6e-408f-8d53-6ddb152ccb18",
+		"name": "Login",
+		"url": "http://{{url}}/api/v1/login",
+		"description": null,
+		"data": [],
+		"dataOptions": null,
+		"dataMode": "raw",
+		"headerData": [
+		  {
+			"key": "Content-Type",
+			"value": "application/json",
+			"type": "text"
+		  }
+		],
+		"method": "POST",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [
+		  {
+			"listen": "test",
+			"script": {
+			  "id": "901e19f2-cc4a-4811-b8b9-1e4191bc7923",
+			  "exec": [
+				"",
+				"pm.test(\"Status code is 200\", function () {",
+				"    pm.response.to.have.status(200);",
+				"});",
+				"let jsonData = pm.response.json();",
+				"console.log(jsonData.data.authToken);",
+				"console.log(jsonData.data.userId);",
+				"pm.environment.set(\"token\", jsonData.data.authToken);",
+				"pm.environment.set(\"id\", jsonData.data.userId);"
+			  ],
+			  "type": "text/javascript"
+			}
+		  }
+		],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "\npm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\nlet jsonData = pm.response.json();\nconsole.log(jsonData.data.authToken);\nconsole.log(jsonData.data.userId);\npm.environment.set(\"token\", jsonData.data.authToken);\npm.environment.set(\"id\", jsonData.data.userId);",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "301de5f6-be0b-49a9-afca-c87ce0260bb3",
+		"rawModeData": "{\n\t\"user\":\"{{username}}\",\n\t\"password\":\"{{password}}\"\n}",
+		"headers": "Content-Type: application/json\n",
+		"pathVariables": []
+	  }
+	]
+  }
